@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花样闹钟 - 常见问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .faq-list {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .question-text {
+            font-weight: 500;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .question-icon {
+            color: #000;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .question-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 20px 24px;
+        }
+
+        .faq-answer p {
+            margin-bottom: 10px;
+        }
+
+        .faq-answer strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        footer h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .faq-question {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>花样闹钟 常见问题</h1>
+        </header>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">如何设置剧情模式闹钟？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>在主页选择<strong>"铃声场景"</strong>模块中的剧情模式卡片（如地球Online、凡人修仙等），点击进入后可以配置：</p>
+                    <p>• 自定义文本变量（最多20字）<br>
+                    • 设置生日日期<br>
+                    • 选择是否播报每日天气</p>
+                    <p>保存成功后，该剧情模式会在主页高亮显示，并保留您的历史设置。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">自定义铃声有什么限制？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>录制铃声：</strong>最多30秒倒计时，最多保存5条录音</p>
+                    <p><strong>上传音频：</strong>文件大小不超过20MB，音频最长30秒</p>
+                    <p><strong>视频转铃声：</strong>视频时长不超过5分钟，提取后的音频最长30秒</p>
+                    <p>所有自定义铃声都支持配置唤醒屏保（预制图片或用户上传）。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">为什么我的闹钟没有响？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>App设置相关：</strong></p>
+                    <p>• <strong>铃声场景：</strong>是否已设置铃声场景？未设置会提示"请先点击下方，设置铃声场景"<br>
+                    • <strong>会员状态：</strong>会员失效后闹钟会自动关闭<br>
+                    • <strong>闹钟开关：</strong>确认闹钟开关是否已开启<br>
+                    • <strong>法定节假日：</strong>如果开启了"法定节假日不响铃"，节假日当天不会响铃</p>
+
+                    <p><strong>系统设置相关：</strong></p>
+                    <p>• <strong>勿扰模式：</strong>检查iPhone是否开启了勿扰模式或专注模式<br>
+                    • <strong>静音开关：</strong>检查手机侧面的静音开关是否打开<br>
+                    • <strong>音量设置：</strong>确保铃声音量足够大（设置 > 声音与触感）<br>
+                    • <strong>通知权限：</strong>确保已授予花样闹钟通知权限（设置 > 通知 > 花样闹钟）<br>
+                    • <strong>后台刷新：</strong>确保已开启后台App刷新（设置 > 通用 > 后台App刷新）<br>
+                    • <strong>低电量模式：</strong>低电量模式可能影响闹钟功能</p>
+
+                    <p><strong>其他可能原因：</strong></p>
+                    <p>• <strong>App被强制关闭：</strong>不要从后台完全关闭App<br>
+                    • <strong>系统更新：</strong>iOS系统更新后可能需要重新设置权限<br>
+                    • <strong>App版本：</strong>确保使用最新版本的花样闹钟</p>
+
+                    <p>如果以上都检查过仍无法解决，请尝试重启手机或重新安装App。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">如何使用视频转铃声功能？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>1. 在主页点击<strong>"自定义闹钟素材"</strong>模块中的"视频转铃声"<br>
+                    2. 从相册导入视频（视频时长不超过5分钟）<br>
+                    3. 系统自动提取音频<br>
+                    4. 支持裁切和播放预览，音频最长30秒<br>
+                    5. 可选择唤醒屏保（预制图片或上传自定义图片）<br>
+                    6. 保存后即可在闹钟中使用</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">如何恢复购买？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>如果您更换了设备或重新安装了App，可以通过<strong>"恢复购买"</strong>功能找回会员权益：</p>
+                    <p>1. 进入设置页<br>
+                    2. 点击"恢复购买"<br>
+                    3. 系统会自动验证您的购买记录<br>
+                    4. 恢复成功后会自动返回主页并刷新会员状态</p>
+                    <p>注意：恢复购买需要使用购买时的Apple ID登录。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">法定节假日不响铃如何设置？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>在<strong>闹钟设置页</strong>中：</p>
+                    <p>1. 选择重复方式为"自定义"<br>
+                    2. 选择需要响铃的星期（周日-周六）<br>
+                    3. 开启<strong>"法定节假日不响铃"</strong>开关</p>
+                    <p>设置后，在法定节假日当天，即使是工作日，闹钟也不会响铃，让您安心休息。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">录制铃声有时长限制吗？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>是的，录制铃声有以下限制：</p>
+                    <p>• <strong>单次录制时长：</strong>最多30秒<br>
+                    • <strong>保存数量：</strong>最多保存5条录音<br>
+                    • <strong>命名规则：</strong>录音1-5，按时间倒序排列<br>
+                    • <strong>管理功能：</strong>支持删除和选择，保存后默认选中新录音</p>
+                    <p>如果录音数量已达上限，需要先删除旧录音才能录制新的。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">如何更换唤醒屏保？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>在设置自定义铃声时，可以配置唤醒屏保：</p>
+                    <p>• <strong>预制屏保：</strong>从系统提供的精美图片中选择<br>
+                    • <strong>自定义上传：</strong>从相册上传您喜欢的图片</p>
+                    <p>注意：上传新图片会替换之前的自定义图片。唤醒屏保会在闹铃响起后的Landing页展示，配合剧情文案或TTS朗读，营造沉浸式唤醒体验。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span class="question-text">为什么需要位置权限？</span>
+                    <span class="question-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>位置权限用于<strong>天气播报功能</strong>：</p>
+                    <p>• 剧情模式中可选择"播报每日天气"<br>
+                    • 需要申请LBS定位（非精确定位）<br>
+                    • 如果拒绝授权，天气功能会自动关闭并提示<br>
+                    • 天气获取超时或失败时，会自动去掉天气文案占位</p>
+                    <p>注意：我们只获取城市级别的位置信息，不会获取您的精确位置，保护您的隐私安全。</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h3>还有其他问题？</h3>
+            <p>📧 联系我们：feedback@nbinterstellar.com</p>
+            <p>💬 加入专属会员群获取更多帮助</p>
+            <p>⭐ 在App Store给我们评分</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+
+            // 关闭所有项目
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // 切换当前项目
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
